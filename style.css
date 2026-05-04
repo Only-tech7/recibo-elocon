@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/*container principal*/
+.container {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 30px 35px;
+    border-radius: 30px 35px;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    animation: fadeIn 0.6s ease;
+    margin: 0 auto;
+    
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px
+}
+
+.header h2 {
+    color: #f1f5f9;
+    font-size: 34px;
+    margin-top: -70px ;
+}
+
+.header p {
+    color: #94a3b8;
+     font-size: 16px;
+}
+
+.section{
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid #1e293b;
+    transition: 0.3s;
+}
+/*seção ativa*/
+.section.active {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+/*campos grandes*/
+.form-group.full {
+    grid-column: span 2;
+}
+
+.form-group.half {
+    grid-column: span 2;
+}
+
+/*label*/
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #cbd5f5;
+    letter-spacing: 0.5px;
+}
+/*efeito glow*/
+.form-group label::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin-top: 4px;
+    background: linear-gradient(90deg, #3b82f6, transparent);
+}
+
+/*inputs*/
+.form-group input {
+    background: #0f172a ;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    font-size: 14px;
+    transition: 0.3s;
+    color: #e2e8f0;
+}
+
+/*placeholder*/
+.form-group input::placeholder {
+    color: #64748b;
+}
+
+/*efeito de foco*/
+.form-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130,246, 0.2);
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #ef4444;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0,.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.success {
+    background: #22c55e;
+}
+
+/*botao*/
+.btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/*botao hover*/
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/*clique botao*/
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.btn.loading::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 3px solid white;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    animation: spin 0.7s linear infinite;
+}
+
+/*animação*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.logo {
+    width: 200px;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    
+}
+
+.erro {
+    border: 1px solid #Ef4444 !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr
+    }
+    .form-group.full {
+        grid-column: span 1;
+    }
+}
